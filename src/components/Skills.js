@@ -34,23 +34,23 @@ const Skills = () => {
               <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white md:text-2xl">
                 {section.category}
               </h2>
-              <div className="grid items-stretch justify-center gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid items-stretch justify-center gap-x-4 gap-y-6 min-[460px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {section.skills.map((skill) => (
                   <div
                     key={skill.name}
                     data-aos="zoom-in-up"
                     data-aos-duration="1200"
                     data-aos-once="false"
-                    className="mx-auto flex w-24 flex-col items-center space-y-2"
+                    className="mx-auto flex w-full max-w-[6rem] flex-col items-center space-y-2 sm:max-w-[6.5rem]"
                   >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white p-3 shadow-sm transition duration-700 dark:bg-slate-100">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-white p-3 shadow-sm transition duration-700 dark:bg-slate-100 sm:h-16 sm:w-16">
                       <img
                         src={skill.image}
                         alt={skill.name}
-                        className="h-12 w-12 object-contain"
+                        className="h-10 w-10 object-contain sm:h-12 sm:w-12"
                       />
                     </div>
-                    <p className="text-center text-sm font-medium md:text-base">{skill.name}</p>
+                    <p className="text-center text-xs font-medium sm:text-sm md:text-base">{skill.name}</p>
                   </div>
                 ))}
               </div>

@@ -152,62 +152,66 @@ const Research = () => {
                   isActive ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
                 }`}
               >
-                <div className="flex flex-1 flex-col gap-3">
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                    {paper.title}
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-2 pt-1">
-                    {paper.tag && (
-                      <span className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200">
-                        {paper.tag}
-                      </span>
-                    )}
-                    <TypeBadge type={paper.type} />
-                    <PresBadge presentation={paper.presentation} />
-                  </div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                    {highlightAuthors(paper, paper.authors)}
-                  </p>
-                  {equalContributionAuthors[paper.id] && (
-                    <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                      * Equal Contribution
-                    </p>
-                  )}
-                  {false && (
-                    <>
-                      <p className="text-base font-medium text-darkblue dark:text-light-blue">
-                        {paper.venue}
+                <div className="flex flex-1 flex-col overflow-hidden">
+                  <div className="flex-1 overflow-y-auto pr-1 sm:pr-2">
+                    <div className="flex flex-col gap-3 pb-2">
+                      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                        {paper.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                        {paper.tag && (
+                          <span className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200">
+                            {paper.tag}
+                          </span>
+                        )}
+                        <TypeBadge type={paper.type} />
+                        <PresBadge presentation={paper.presentation} />
+                      </div>
+                      <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                        {highlightAuthors(paper, paper.authors)}
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Year: {paper.year}</p>
-                    </>
-                  )}
-                  {paper.summary && (
-                    <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                      {paper.summary}
-                    </p>
-                  )}
-                </div>
-                <div className="mt-auto flex flex-wrap gap-4">
-                  <a
-                      className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-darkblue shadow-sm transition hover:bg-slate-100 dark:bg-slate-800 dark:text-light-blue dark:hover:bg-slate-700"
-                      href={paper.paperUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaExternalLinkAlt size={16} />
-                    Paper
-                  </a>
-                  {paper.codeUrl && (
+                      {equalContributionAuthors[paper.id] && (
+                        <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                          * Equal Contribution
+                        </p>
+                      )}
+                      {false && (
+                        <>
+                          <p className="text-base font-medium text-darkblue dark:text-light-blue">
+                            {paper.venue}
+                          </p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">Year: {paper.year}</p>
+                        </>
+                      )}
+                      {paper.summary && (
+                        <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                          {paper.summary}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-wrap gap-4">
                     <a
                       className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-darkblue shadow-sm transition hover:bg-slate-100 dark:bg-slate-800 dark:text-light-blue dark:hover:bg-slate-700"
-                      href={paper.codeUrl}
+                      href={paper.paperUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaGithub size={18} />
-                      Code
+                      <FaExternalLinkAlt size={16} />
+                      Paper
                     </a>
-                  )}
+                    {paper.codeUrl && (
+                      <a
+                        className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-darkblue shadow-sm transition hover:bg-slate-100 dark:bg-slate-800 dark:text-light-blue dark:hover:bg-slate-700"
+                        href={paper.codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGithub size={18} />
+                        Code
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
               </article>
