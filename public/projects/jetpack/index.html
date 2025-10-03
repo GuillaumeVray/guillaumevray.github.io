@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jetpack — Java Platformer</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #0b1020; color: #eef3ff; }
+      header { padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      main { padding: 1rem; max-width: 960px; margin: 0 auto; }
+      .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin: .5rem 0 1rem; }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; background:#111827; color:#a5b4fc; padding:.5rem .9rem; border-radius:999px; text-decoration:none; border:1px solid #1f2937 }
+      .btn:hover { background:#0f172a; }
+      iframe { width: 100%; height: 600px; border: 1px solid #1f2937; border-radius: .5rem; background: #000; }
+      .note { font-size: .9rem; color: #9ca3af; }
+      .hidden { display: none; }
+    </style>
+    <script src="https://cjrtnc.leaningtech.com/2.3/loader.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Jetpack — Java Platformer</h1>
+      <div class="actions">
+        <a class="btn" href="./Jeux.jar" download>Download JAR</a>
+      </div>
+      <p class="note">Runs in-browser using CheerpJ. First load may take ~30s.</p>
+    </header>
+    <main>
+      <div id="run-area">
+        <button id="run-btn" class="btn">Run Game</button>
+      </div>
+      <div id="app-container"></div>
+    </main>
+    <script>
+      const runBtn = document.getElementById('run-btn');
+      runBtn?.addEventListener('click', async () => {
+        runBtn.disabled = true; runBtn.textContent = 'Loading…';
+        try {
+          await cheerpjInit({ enableInputMethods: true });
+          const display = await cheerpjCreateDisplay(800, 600);
+          document.getElementById('app-container').appendChild(display);
+          await cheerpjRunJar("./Jeux.jar");
+        } catch (e) {
+          console.error(e);
+          alert('Failed to start the game. You can still download the JAR and run it locally with Java.');
+        } finally {
+          document.getElementById('run-area').classList.add('hidden');
+        }
+      });
+    </script>
+  </body>
+  </html>
