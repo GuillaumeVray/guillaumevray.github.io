@@ -8,12 +8,8 @@ const Navlinks = [
     link: "about",
   },
   {
-    title: "Experience",
-    link: "experience",
-  },
-  {
-    title: "Education",
-    link: "education",
+    title: "Career",
+    link: "career",
   },
   {
     title: "Skills",
@@ -22,6 +18,10 @@ const Navlinks = [
   {
     title: "Research",
     link: "research",
+  },
+  {
+    title: "Projects",
+    link: "projects",
   },
   {
     title: "Contact",

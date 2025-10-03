@@ -8,9 +8,9 @@ const dashedConnectorStyle = {
   backgroundRepeat: "repeat-y",
 };
 
-const TimelineMarker = ({ logo, institution }) => (
+const TimelineMarker = () => (
   <div className="relative flex basis-[3.5rem] flex-shrink-0 items-start justify-center pt-1 md:mx-auto md:col-start-5 md:col-end-6 md:block md:basis-auto md:pt-0">
-    <div className="hidden md:flex h-full w-4 items-center justify-center">
+    <div className="flex h-full w-4 items-center justify-center">
       <div className="h-full w-[3px] bg-light-blue/50"></div>
     </div>
     <div className="flex items-center justify-center md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2">
@@ -19,15 +19,37 @@ const TimelineMarker = ({ logo, institution }) => (
         style={{ boxShadow: "0 0 35px rgba(96, 165, 250, 0.55)" }}
       >
         <span className="absolute inset-0 rounded-full bg-light-blue/40 md:animate-ping"></span>
-        <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-inner sm:h-10 sm:w-10 md:h-14 md:w-14">
-          <img
-            src={logo}
-            alt={`${institution} logo`}
-            className="h-6 w-6 object-contain sm:h-8 sm:w-8 md:h-10 md:w-10"
-          />
-        </div>
+        <div className="relative z-10 h-7 w-7 rounded-full bg-white shadow-inner sm:h-9 sm:w-9 md:h-12 md:w-12"></div>
       </div>
     </div>
+  </div>
+);
+
+const TimelineCard = ({ title, institution, duration, location, logo, summary }) => (
+  <div className="my-4 rounded-xl border border-slate-200 bg-white p-4 text-gray-700 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-200 sm:p-5">
+    <div className="flex items-center gap-3">
+      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-white ring-1 ring-slate-200 dark:bg-slate-100">
+        <img src={logo} alt={`${institution} logo`} className="h-7 w-7 object-contain" />
+      </div>
+      <div className="min-w-0">
+        <h3 className="truncate text-[clamp(1.05rem,2.2vw,1.3rem)] font-semibold text-gray-900 dark:text-white md:text-lg">
+          {title}
+        </h3>
+        <p className="truncate text-xs font-medium text-gray-500 dark:text-gray-300 md:text-sm">
+          {[institution, duration].filter(Boolean).join(" · ")}
+        </p>
+      </div>
+    </div>
+    {location && (
+      <p className="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400">
+        {location}
+      </p>
+    )}
+    {summary && (
+      <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        {summary}
+      </p>
+    )}
   </div>
 );
 
@@ -35,7 +57,7 @@ const Education = () => {
   return (
     <section className="bg-white px-3 pb-3 pt-1 transition-colors duration-300 dark:bg-slate-950 md:pt-4">
       <div className="mx-auto max-w-6xl">
-        <div aria-hidden="true" className="hidden md:block">
+        <div aria-hidden="true" className="block">
           <div className="grid grid-cols-9">
             <div className="col-start-5 col-end-6 mx-auto relative">
               <div className="w-4 flex flex-col items-center justify-center">
@@ -72,66 +94,36 @@ const Education = () => {
                   data-aos="zoom-in-up"
                   data-aos-duration="1500"
                   data-aos-once="false"
-                  className="my-4 flex-1 rounded-lg bg-slate-100 p-3 text-gray-700 shadow-md transition-colors duration-300 dark:bg-slate-800 dark:text-gray-200 sm:p-3.5 md:col-start-1 md:col-end-5 md:ml-auto md:p-5"
+                  className="md:col-start-1 md:col-end-5 md:ml-auto"
                 >
-                  <h3 className="mb-1 text-[clamp(1.05rem,2.2vw,1.35rem)] font-semibold md:text-xl">
-                    {edu.title}
-                  </h3>
-                  <div className="mb-2 flex w-full flex-col justify-between gap-1.5 font-medium text-gray-500 dark:text-gray-300 md:flex-row md:items-center md:gap-2">
-                    <div className="text-[clamp(0.95rem,2vw,1.1rem)]">
-                      {edu.institution}
-                    </div>
-                    <p className="text-sm md:text-base">
-                      {edu.duration}
-                    </p>
-                  </div>
-                  <p className="mb-2 text-sm text-gray-500 dark:text-gray-300 md:text-base">
-                    {edu.location}
-                  </p>
-                  <div className="mx-auto flex w-full">
-                    <ul className="list-disc pl-4 text-start text-[clamp(0.9rem,1.9vw,1.05rem)] font-medium leading-relaxed sm:pl-5 md:text-base md:leading-loose">
-                      {edu?.description?.map((desc, descIndex) => (
-                        <li key={descIndex} className="mb-1 md:mb-2">
-                          {desc}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <TimelineCard
+                    title={edu.title}
+                    institution={edu.institution}
+                    duration={edu.duration}
+                    location={edu.location}
+                    logo={edu.logo}
+                    summary={edu.description?.[0]}
+                  />
                 </div>
-                <TimelineMarker logo={edu.logo} institution={edu.institution} />
+                <TimelineMarker />
               </div>
             ) : (
               <div key={index} className="flex items-start gap-3 sm:gap-4 md:contents text-start">
-                <TimelineMarker logo={edu.logo} institution={edu.institution} />
+                <TimelineMarker />
                 <div
                   data-aos="zoom-in-up"
                   data-aos-duration="1500"
                   data-aos-once="false"
-                  className="my-4 flex-1 rounded-lg bg-slate-100 p-3 text-gray-700 shadow-md transition-colors duration-300 dark:bg-slate-800 dark:text-gray-200 sm:p-3.5 md:col-start-6 md:col-end-10 md:mr-auto md:p-5"
+                  className="md:col-start-6 md:col-end-10 md:mr-auto"
                 >
-                  <h3 className="mb-1 text-[clamp(1.05rem,2.2vw,1.35rem)] font-semibold md:text-xl">
-                    {edu.title}
-                  </h3>
-                  <div className="mb-2 flex w-full flex-col justify-between gap-1.5 font-medium text-gray-500 dark:text-gray-300 md:flex-row md:items-center md:gap-2">
-                    <div className="text-[clamp(0.95rem,2vw,1.1rem)]">
-                      {edu.institution}
-                    </div>
-                    <p className="text-sm md:text-base">
-                      {edu.duration}
-                    </p>
-                  </div>
-                  <p className="mb-2 text-sm text-gray-500 dark:text-gray-300 md:text-base">
-                    {edu.location}
-                  </p>
-                  <div className="mx-auto flex w-full">
-                    <ul className="list-disc pl-4 text-start text-[clamp(0.9rem,1.9vw,1.05rem)] font-medium leading-relaxed sm:pl-5 md:text-base md:leading-loose">
-                      {edu?.description?.map((desc, descIndex) => (
-                        <li key={descIndex} className="mb-1 md:mb-2">
-                          {desc}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <TimelineCard
+                    title={edu.title}
+                    institution={edu.institution}
+                    duration={edu.duration}
+                    location={edu.location}
+                    logo={edu.logo}
+                    summary={edu.description?.[0]}
+                  />
                 </div>
               </div>
             );

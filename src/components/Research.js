@@ -109,7 +109,7 @@ const Research = () => {
               role="button"
               aria-label={`View details for ${paper.title}`}
               aria-expanded={isActive}
-              className={`group relative flex h-[26rem] md:h-[28rem] cursor-pointer overflow-hidden rounded-xl shadow-md transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-light-blue dark:shadow-slate-800 md:shadow-lg ${
+              className={`group relative flex h-[22rem] md:h-[24rem] cursor-pointer overflow-hidden rounded-xl shadow-md transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-light-blue dark:shadow-slate-800 md:shadow-lg ${
                 isNew ? "new-paper-card" : ""
               }`}
               onMouseEnter={() => activatePaper(paper.id)}
@@ -146,6 +146,11 @@ const Research = () => {
                 }`}
               >
                 <h3 className="text-left text-2xl font-semibold text-white">{paper.title}</h3>
+                {paper.tag && (
+                  <span className="mt-1 inline-flex items-center rounded-full bg-slate-100/20 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/30">
+                    {paper.tag}
+                  </span>
+                )}
               </div>
               <div
                 className={`absolute inset-0 z-20 flex h-full flex-col rounded-xl bg-white p-6 text-start transition-all duration-500 ease-in-out transform dark:bg-slate-900 ${

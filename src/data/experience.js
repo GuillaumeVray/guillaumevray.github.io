@@ -9,6 +9,8 @@ const ExperienceData = [
     logo: epflLogo,
     duration: "September 2018 - June 2019",
     location: "Lausanne, Switzerland",
+    summary:
+      "Prototyped driver-monitoring models within the ADAS&ME research consortium and learned how to ship research to embedded teams.",
     description: [
       "Built a real-time driver state recognition prototype (95% accuracy in lab evaluations) for the EU ADAS&ME project.",
       "Demonstrated on vehicles with 3 industrial partners (Scania, Valeo, DLR).",
@@ -17,10 +19,12 @@ const ExperienceData = [
   },
   {
     title: "Deep Learning Engineer",
-    company: "Yildiz Technical University",
+    company: "Yildiz Technical University (Summer Internship)",
     logo: yildizLogo,
     duration: "June 2019 - August 2019",
     location: "Istanbul, Turkey",
+    summary:
+      "Explored vision GANs for storyboarding and discovered how to scope fast-moving research projects with faculty mentors.",
     description: [
       "Delivered a computer vision proof‑of‑concept to surface the most informative frames for movie summarization.",
       "Prototyped GAN‑based saliency estimation and an evaluation pipeline to guide downstream summarization quality."
@@ -28,10 +32,12 @@ const ExperienceData = [
   },
   {
     title: "Deep Learning Engineer",
-    company: "Datacie",
+    company: "Datacie (Summer Internship)",
     logo: datacieLogo,
     duration: "June 2020 - August 2020",
     location: "Lausanne, Switzerland",
+    summary:
+      "Built document-understanding pipelines end to end and learned how to align models with analytics teams quickly.",
     description: [
       "Designed an end‑to‑end prototype for automated table detection in complex documents (preprocessing → training → evaluation).",
       "Delivered reproducible training/evaluation code and documentation to accelerate internal analytics and iteration (zero‑to‑run setup).",
@@ -39,11 +45,13 @@ const ExperienceData = [
     ],
   },
   {
-    title: "PhD Student & Teacher Assistant",
+    title: "Machine Learning Researcher (PhD)",
     company: "EPFL",
     logo: epflLogo,
     duration: "September 2021 - December 2025",
     location: "Lausanne, Switzerland",
+    summary:
+      "Leading research on test-time adaptation while mentoring students—combining theory with deployable robustness.",
     description: [
       "Research focus: test‑time adaptation to increase robustness of deep learning vision systems under real‑world distribution shift.",
       "Applied across domains—from natural scenes to medical imaging—demonstrating broad transferability.",

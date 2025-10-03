@@ -1,11 +1,11 @@
 import "./App.css";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Education from "./components/Education";
-import Experience from "./components/Experience";
+import Career from "./components/Career";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
+import Projects from "./components/Projects";
 import Research from "./components/Research";
 import ScrollToTopButton from "./components/ScrollToTop";
 import Skills from "./components/Skills";
@@ -21,10 +21,10 @@ const AppContent = () => {
       <Navbar />
       <Profile />
       <About />
-      <Experience />
-      <Education />
+      <Career />
       <Skills />
       <Research />
+      <Projects />
       <Contact />
       <Footer />
       <ScrollToTopButton />

@@ -8,7 +8,7 @@ const ProfileData = {
     "for real‑world use.",
   ],
   resume:
-    "https://drive.google.com/file/d/1BuNs9SksncoqO8Dob2zomr47r94oUXbw/view?usp=sharing",
+    "https://drive.google.com/file/d/1dTyDRvpBOczm1RVpOP7wy52UU0Qk040G/view?usp=sharing",
 };
 
 export default ProfileData;

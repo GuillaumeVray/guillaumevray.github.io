@@ -67,17 +67,6 @@ const Profile = () => {
             data-aos-once="false"
             className="mt-4 flex flex-wrap gap-3 md:gap-4 justify-center md:justify-between"
           >
-            <button className="inline-flex rounded-full border-2 border-black bg-black px-7 py-3 text-md font-medium text-white transition focus:outline-none hover:bg-cornsilk hover:border-light-blue hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:text-black xl:px-10">
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={750}
-              >
-                Hire Me
-              </Link>
-            </button>
             <a href={ProfileData.resume} target="_blank" rel="noreferrer">
               <button className="inline-flex rounded-full border-2 border-light-blue bg-light-blue px-7 py-3 text-md font-medium text-white transition focus:outline-none hover:bg-cornsilk hover:border-light-blue hover:text-black xl:px-10">
                 Get Resume

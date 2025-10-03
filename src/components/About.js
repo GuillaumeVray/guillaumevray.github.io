@@ -11,14 +11,7 @@ const About = () => {
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-light-blue">
             About Me
           </h1>
-          <p
-            data-aos="zoom-in"
-            data-aos-duration="1000"
-            data-aos-once="false"
-            className="text-lg mx-auto leading-relaxed font-medium text-gray-900 text-center dark:text-white"
-          >
-            Why hire me ?
-          </p>
+          
         </div>
         <div className="mx-auto flex lg:flex-row flex-col items-center justify-center">
           <div
@@ -51,17 +44,6 @@ const About = () => {
               data-aos-once="false"
               className="mt-7 flex gap-x-4 md:gap-x-5 justify-center md:justify-between"
             >
-              <button className="inline-flex rounded-full border-2 border-black bg-black px-7 py-3 text-md font-medium text-white transition focus:outline-none hover:bg-cornsilk hover:border-light-blue hover:text-black dark:border-white dark:bg-white dark:text-black xl:px-10">
-                <Link
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
-                >
-                  Hire Me
-                </Link>
-              </button>
               <a href={ProfileData.resume} target="_blank" rel="noreferrer">
                 <button className="inline-flex font-medium text-white bg-light-blue border-2 border-light-blue py-3 px-7 focus:outline-none hover:bg-cornsilk hover:border-light-blue hover:text-black rounded-full text-md xl:px-10">
                   Get Resume
